@@ -3,20 +3,16 @@ package ru.job4j.forum.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.forum.model.Authority;
-import ru.job4j.forum.repository.memory.AuthorityMemory;
+import ru.job4j.forum.repository.data.AuthorityRepository;
 
-import java.util.Collection;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class AuthorityService {
-    private final AuthorityMemory store;
+    private final AuthorityRepository store;
 
-    public Authority findBuId(int id) {
+    public Optional<Authority> findBuId(int id) {
         return store.findById(id);
-    }
-
-    public Collection<Authority> findAll() {
-        return store.findAll();
     }
 }

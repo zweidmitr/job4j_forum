@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Repository
 public class UserMemory {
     private final Map<Integer, User> users = new ConcurrentHashMap<>();
     private final AtomicInteger id = new AtomicInteger(1);

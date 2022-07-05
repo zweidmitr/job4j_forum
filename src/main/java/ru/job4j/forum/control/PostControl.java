@@ -9,7 +9,6 @@ import ru.job4j.forum.model.Post;
 import ru.job4j.forum.service.AnswerService;
 import ru.job4j.forum.service.PostService;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,11 +38,9 @@ public class PostControl {
     @PostMapping("/save")
     public String save(@ModelAttribute Post post) {
         if (post.getId() == 0) {
-            post.setDate(LocalDateTime.now());
             post.setAnswers(new ArrayList<Answer>());
             posts.save(post);
         } else {
-            post.setDate(LocalDateTime.now());
             posts.update(post);
         }
         return "redirect:/";
@@ -52,9 +49,9 @@ public class PostControl {
     @PostMapping("/saveAnswer/{postId}")
     public String saveAnswer(@ModelAttribute Answer answer,
                              @PathVariable("postId") int id) {
-        answer.setDate(LocalDateTime.now());
-        answers.save(answer);
         Post post = posts.findById(id);
+        answer.setPost(post);
+        answers.save(answer);
         List<Answer> answerList = post.getAnswers();
         answerList.add(answer);
         post.setAnswers(answerList);

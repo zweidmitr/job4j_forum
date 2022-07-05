@@ -4,15 +4,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.Objects;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
     private String password;
+    @ManyToOne
+    @JoinColumn(nullable = false)
     private Authority authority;
     private boolean enabled;
 

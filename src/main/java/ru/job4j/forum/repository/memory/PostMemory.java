@@ -11,15 +11,9 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Repository
 public class PostMemory {
     private final Map<Integer, Post> posts = new ConcurrentHashMap<>();
-    private final AtomicInteger id = new AtomicInteger(2);
-
-    private PostMemory() {
-        posts.put(0, Post.of("ПРодаю машину ладу", "Суперкар"));
-        posts.put(1, Post.of("Срочно куплю пылесос", "лж"));
-    }
+    private final AtomicInteger id = new AtomicInteger(0);
 
     public void save(Post post) {
         int newId = id.incrementAndGet();

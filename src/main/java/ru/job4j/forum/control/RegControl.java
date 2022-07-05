@@ -19,7 +19,7 @@ public class RegControl {
     @PostMapping("/reg")
     public String regSave(@ModelAttribute User user) {
         user.setEnabled(true);
-        user.setAuthority(authorities.findBuId(1));
+        user.setAuthority(authorities.findBuId(1).get());
         users.save(user);
         return "redirect:/login";
     }

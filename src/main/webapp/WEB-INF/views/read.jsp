@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <!-- Bootstrap CSS -->
@@ -40,10 +41,7 @@
                 <div class="card-header">
                     <div class="media-body ml-3">
                         <a>userName</a>
-                        <c:set var="dt" value="${post.date}"/>
-                        <div class="text-muted small">
-                            <c:out value="${dt.year}-${dt.monthValue}-${dt.dayOfMonth}   ${dt.hour}:${dt.minute}"/>
-                        </div>
+                        <fmt:formatDate value="${post.created}" type="both" pattern='dd MMMM, EEEE, yyyy г.'/>
                     </div>
                 </div>
                 <div class="card-body">

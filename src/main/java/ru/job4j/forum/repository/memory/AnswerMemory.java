@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Repository
 public class AnswerMemory {
     private final Map<Integer, Answer> answers = new ConcurrentHashMap<>();
     private final AtomicInteger id = new AtomicInteger(0);

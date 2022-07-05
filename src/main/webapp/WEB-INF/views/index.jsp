@@ -42,21 +42,17 @@
             <thead>
             <tr>
                 <th scope="col">Тема</th>
-                <th scope="col">Дата</th>
+                <th scope="col">Создан</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${posts}" var="post">
                 <tr>
+
                     <td><a href="<c:url value='/read?id=${post.id}'/> ">
                         <c:out value="${post.name}"/></a></td>
                         <%--                    <td><c:out value="${post.date.withNano(0)}"/></td>--%>
-                    <td>
-                        <c:set var="dt" value="${post.date}"/>
-                        <div class="text-muted small">
-                            <c:out value="${dt.year}-${dt.monthValue}-${dt.dayOfMonth}   ${dt.hour}:${dt.minute}"/>
-                        </div>
-                    </td>
+                    <fmt:formatDate value="${post.created}" type="both" pattern='dd MMMM, EEEE, yyyy г.'/>
                 </tr>
             </c:forEach>
             </tbody>

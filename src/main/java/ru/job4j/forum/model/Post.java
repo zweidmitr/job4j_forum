@@ -5,42 +5,32 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "posts")
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
-    private LocalDateTime date;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created = new Date(System.currentTimeMillis());
+    /*
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
+     */
+    @OneToMany(mappedBy = "post", orphanRemoval = true)
     private List<Answer> answers;
-
-    public Post(int id, String name, String description, LocalDateTime date, User user) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.date = date;
-        this.user = user;
-    }
-
-    public Post(int id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
-
-    public static Post of(String name, String description) {
-        Post post = new Post();
-        post.setName(name);
-        post.setDescription(description);
-        post.setDate(LocalDateTime.now());
-        return post;
-    }
 
     @Override
     public boolean equals(Object o) {

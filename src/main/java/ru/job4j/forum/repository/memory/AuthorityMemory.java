@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Repository
 public class AuthorityMemory {
     private final Map<Integer, Authority> auth = new ConcurrentHashMap<>();
 
