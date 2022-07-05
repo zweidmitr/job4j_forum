@@ -1,6 +1,7 @@
 package ru.job4j.forum.control;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ public class IndexControl {
     public String index(Model model) {
         model.addAttribute("posts", posts.findAll());
         model.addAttribute("answers", answers.findAll());
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "index";
     }
 }

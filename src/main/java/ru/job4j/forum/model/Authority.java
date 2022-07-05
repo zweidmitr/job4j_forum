@@ -17,7 +17,7 @@ public class Authority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "authority", unique = true)
-    private String name;
+    private String authority;
 
     @Override
     public boolean equals(Object o) {

@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface PostRepository extends CrudRepository<Post, Integer> {
     @Query("select distinct p from Post p "
             + "left join fetch p.answers a "
-            + "order by p.id")
+            + "order by p.updated DESC ")
     List<Post> findAll();
 
     @Query("select distinct  p from Post p "

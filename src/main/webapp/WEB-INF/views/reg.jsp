@@ -15,36 +15,39 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Авторизация</title>
+    <title>Регистрация</title>
 </head>
 <body>
-<div class="row pt-3">
-    <div class="col-sm"></div>
-    <div class="col-sm">
-        <div class="w-100 card">
-            <div class="card-body">
-                <div class="alert text center" role="alert">Регистрация</div>
-                <form name="reg" action="<c:url value="/reg"/> " method="post">
-                    <table>
-                        <tr>
-                            <td>Логин:</td>
-                            <td><input class="form-control" type="text" name="username"></td>
-                        </tr>
-                        <tr>
-                            <td>Пароль:</td>
-                            <td><input class="form-control" type="text" name="password"></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colsapan="2"><input name="submit" type="submit" value="Зарегистрироваться"></td>
-                        </tr>
-                    </table>
+<div class="container">
+    <div class="row">
+        <c:if test="${not empty errorMessage}">
+            <div style="color:red; font-weight: bold; margin: 30px 0;">
+                    ${errorMessage}
+            </div>
+        </c:if>
+    </div>
+</div>
+<div class="container pt-3">
+    <div class="row">
+        <div class="card" style="width: 40%">
+            <div class="card-header">
+                Регистрация
+            </div>
+            <div class="card-body" style="font-weight: bold; font-size: larger">
+                <form action="<c:url value="/reg"/>" method="post">
+                    <div class="form-group">
+                        <label for="username" style="font-weight: bold">Логин: </label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Введите ваш логин..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" style="font-weight: bold">Пароль: </label>
+                        <input type="text" class="form-control" name="password" id="password" placeholder="Введите ваш пароль..." required>
+                    </div>
+                    <input name="submit" type="submit" class="btn btn-primary" value="Зарегистрироваться"/>
                 </form>
             </div>
-            <div class="col-sm"></div>
         </div>
     </div>
-    <div class="col-sm"></div>
 </div>
 </body>
 </html>

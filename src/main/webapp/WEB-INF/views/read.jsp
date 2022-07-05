@@ -23,25 +23,31 @@
 
 <div class="container pt-3">
     <div class="card" style="width: 75%">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" ><h4> Форум job4j</h4></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <%--                <a class="nav-item nav-link active" href="<c:url value="/"/>">Все инциденты</a>--%>
-                    <a class="nav-item nav-link " href='<c:url value="/"/>'>Главная страница</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Twelfth navbar example">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10"
+                        aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Все темы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">${user.username} | Выйти</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
         <div class="container-fluid">
             <div class="card mb-4">
                 <div class="card-header">
-                    <div class="media-body ml-3">
-                        <a>userName</a>
-                        <fmt:formatDate value="${post.created}" type="both" pattern='dd MMMM, EEEE, yyyy г.'/>
+                    <div class="row">
+                        <div class="px-4 pt-3 text-left"><h6>${post.user.username}</h6></div>
+                        <div class="px-4 pt-3 text-right"><fmt:formatDate value="${post.created}" type="both"
+                                                                          pattern='dd MMMM, EEEE, yyyy г.'/></div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -53,16 +59,14 @@
 
                     </div>
                     <div class="px-4 pt-3 text-right">
-
-                        <%--                    условие на пользователя--%>
-                        <a href="<c:url value="/update/${post.id}"/>" class="btn btn-warning pull-left"
-                           role="button">Редактировать</a>
+                        <c:if test="${post.user.username == user.username}">
+                            <a href="<c:url value="/update/${post.id}"/>" class="btn btn-warning"
+                               role="button">Редактировать</a>
+                        </c:if>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <button id="1">Ответить</button>
         <divAnswer>
             <div class="card-body">
@@ -84,18 +88,19 @@
 
 
         <c:forEach var="answ" items="${post.answers}">
-        <div class="card mb-4">
-            <div class="card-header">
-                <div class="media-body ml-3">
-                    <a>userName</a>
-                    <a>timeFromAnswer</a>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="px-4 pt-3 text-left"><h6>${answ.user.username}</h6></div>
+                        <div class="px-4 pt-3 text-right"><fmt:formatDate value="${answ.created}" type="both"
+                                                                          pattern='dd MMMM, EEEE, yyyy г.'/></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>${answ.text}</p>
                 </div>
             </div>
-            <div class="card-body">
-                <p>${answ.text}</p>
-            </div>
-        </div>
-    </c:forEach>
+        </c:forEach>
     </div>
 
 </div>

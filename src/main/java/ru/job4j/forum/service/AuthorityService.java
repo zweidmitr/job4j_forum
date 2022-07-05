@@ -15,4 +15,8 @@ public class AuthorityService {
     public Optional<Authority> findBuId(int id) {
         return store.findById(id);
     }
+
+    public Authority findByAuthority(String authority) {
+        return store.findByAuthority(authority);
+    }
 }

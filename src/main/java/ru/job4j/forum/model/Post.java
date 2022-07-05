@@ -24,11 +24,11 @@ public class Post {
     private String description;
     @Temporal(TemporalType.TIMESTAMP)
     private Date created = new Date(System.currentTimeMillis());
-    /*
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updated = new Date(System.currentTimeMillis());
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-     */
     @OneToMany(mappedBy = "post", orphanRemoval = true)
     private List<Answer> answers;
 
@@ -48,5 +48,4 @@ public class Post {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 }
