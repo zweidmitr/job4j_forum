@@ -40,9 +40,11 @@
                 <div class="card-header">
                     <div class="media-body ml-3">
                         <a>userName</a>
-                        <div class="text-muted small"><c:out value="${post.date.withNano(0)}"/></div>
+                        <c:set var="dt" value="${post.date}"/>
+                        <div class="text-muted small">
+                            <c:out value="${dt.year}-${dt.monthValue}-${dt.dayOfMonth}   ${dt.hour}:${dt.minute}"/>
+                        </div>
                     </div>
-
                 </div>
                 <div class="card-body">
                     <p><h5>${post.name}</h5></p>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
@@ -41,7 +42,7 @@
             <thead>
             <tr>
                 <th scope="col">Тема</th>
-                <th scope="col">Дата редактирования</th>
+                <th scope="col">Дата</th>
             </tr>
             </thead>
             <tbody>
@@ -49,7 +50,13 @@
                 <tr>
                     <td><a href="<c:url value='/read?id=${post.id}'/> ">
                         <c:out value="${post.name}"/></a></td>
-                    <td><c:out value="${post.date.withNano(0)}"/></td>
+                        <%--                    <td><c:out value="${post.date.withNano(0)}"/></td>--%>
+                    <td>
+                        <c:set var="dt" value="${post.date}"/>
+                        <div class="text-muted small">
+                            <c:out value="${dt.year}-${dt.monthValue}-${dt.dayOfMonth}   ${dt.hour}:${dt.minute}"/>
+                        </div>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>

@@ -38,7 +38,7 @@ public class PostControl {
 
     @PostMapping("/save")
     public String save(@ModelAttribute Post post) {
-        if (posts.findById(post.getId()).getId() == 0) {
+        if (post.getId() == 0) {
             post.setDate(LocalDateTime.now());
             post.setAnswers(new ArrayList<Answer>());
             posts.save(post);
