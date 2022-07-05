@@ -86,7 +86,6 @@
             });
         </script>
 
-
         <c:forEach var="answ" items="${post.answers}">
             <div class="card mb-4">
                 <div class="card-header">
@@ -102,7 +101,6 @@
             </div>
         </c:forEach>
     </div>
-
 </div>
 </body>
 </html>
