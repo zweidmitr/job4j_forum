@@ -45,8 +45,5 @@ insert into users (username, enabled, password, authority_id)
 values ('root', true, '$2a$10$HkLMPYQ377etGNud22Rs3OkbFQQc1FsiEZhF0LGr0dnXH2k1zZCNW',
         (select id from authorities where authority = 'ROLE_ADMIN'));
 
-drop table answers cascade;
-drop table posts cascade;
-drop table users cascade;
 
 
