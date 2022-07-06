@@ -36,8 +36,8 @@ public class PostControl {
         return "edit";
     }
 
-    @GetMapping("/update/{postId}")
-    public String update(@PathVariable("postId") int id, Model model) {
+    @GetMapping("/update")
+    public String update(@RequestParam("id") int id, Model model) {
         model.addAttribute("post", posts.findById(id));
         return "edit";
     }

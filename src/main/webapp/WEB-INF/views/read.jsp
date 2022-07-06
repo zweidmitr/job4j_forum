@@ -60,7 +60,7 @@
                     </div>
                     <div class="px-4 pt-3 text-right">
                         <c:if test="${post.user.username == user.username}">
-                            <a href="<c:url value="/update/${post.id}"/>" class="btn btn-warning"
+                            <a href="<c:url value="/update?id=${post.id}"/>" class="btn btn-warning"
                                role="button">Редактировать</a>
                         </c:if>
                     </div>

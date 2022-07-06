@@ -50,7 +50,7 @@
             <thead>
             <tr>
                 <th scope="col">Тема</th>
-                <th scope="col">Создан</th>
+                <th scope="col">Обновлено</th>
                 <th scope="col">Автор</th>
             </tr>
             </thead>
