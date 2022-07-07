@@ -6,7 +6,7 @@
 
 Как использовать: пока просто смотреть)
 
-Стек технологий: Spring boot, Thymeleaf, Hibernate.
+Стек технологий: Spring boot, Hibernate, jsp.
 
 Контакты:https:
 //github.com/zweidmitr
@@ -14,17 +14,17 @@
 Описание: разработать многопользовательское вэб приложенеи для обсуждения различных тем.
 - при первом посещении происходит стандартная процедура регистрации.
 - после пользователь попадает  на главную страницу, к выбору списка тем или открытия новой.
-- ![01.PNG](src/main/resources/img/01.JPG)
+![01.PNG](src/main/resources/img/01.JPG)
 - нажав на интересующую тему, происходит переход на страницу обсуждения
-- ![02.PNG](src/main/resources/img/02.JPG)
+![02.PNG](src/main/resources/img/02.JPG)
 - Чтобы оставить сообщение можно нажав на кнопку "Ответить"
-- ![03.PNG](src/main/resources/img/03.JPG)
+![03.PNG](src/main/resources/img/03.JPG)
 - На главной странице можно открыть новую ветку обсуждения и задать интересующую Вас тему
-  ![035.PNG](src/main/resources/img/035.JPG)
+![035.PNG](src/main/resources/img/035.JPG)
 
 Дополнительно:
 - Автор может редактировать свое сообщение
-- ![025.PNG](src/main/resources/img/025.JPG)
+![025.PNG](src/main/resources/img/025.JPG)
 - страница авторизации / регистрации
-- ![04.PNG](src/main/resources/img/04.JPG)
-- ![05.PNG](src/main/resources/img/05.JPG)
+![04.PNG](src/main/resources/img/04.JPG)
+![05.PNG](src/main/resources/img/05.JPG)
