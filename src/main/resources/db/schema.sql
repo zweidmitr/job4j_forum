@@ -1,10 +1,10 @@
-CREATE TABLE authorities
+CREATE TABLE IF NOT EXISTS authorities
 (
     id        SERIAL PRIMARY KEY,
     authority VARCHAR(50) NOT NULL UNIQUE
 );
 
-CREATE TABLE users
+CREATE TABLE IF NOT EXISTS users
 (
     id           SERIAL PRIMARY KEY,
     username     VARCHAR(50)  NOT NULL UNIQUE,
@@ -14,7 +14,7 @@ CREATE TABLE users
     FOREIGN KEY (authority_id) REFERENCES authorities (id)
 );
 
-CREATE TABLE posts
+CREATE TABLE IF NOT EXISTS posts
 (
     id          SERIAL PRIMARY KEY,
     name        VARCHAR(256),
@@ -25,7 +25,7 @@ CREATE TABLE posts
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
-CREATE TABLE answers
+CREATE TABLE IF NOT EXISTS answers
 (
     id      SERIAL PRIMARY KEY ,
     created TIMESTAMP,
