@@ -26,5 +26,6 @@
 - Автор может редактировать свое сообщение
 ![025.PNG](src/main/resources/img/025.JPG)
 - страница авторизации / регистрации
+
 ![04.PNG](src/main/resources/img/04.JPG)
 ![05.PNG](src/main/resources/img/05.JPG)
