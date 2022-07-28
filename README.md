@@ -23,7 +23,7 @@
 * Spring-Boot
 * Spring-Data
 * Java 16
-* PostgresSQL
+* PostgreSQL
 * HTML, BOOTSTRAP
 * lombok
 
